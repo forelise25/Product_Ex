@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="productDao" class="exam.product.dao.ProductImpl"/>
+	<bean id="productService" class="exam.product.service.ProductServiceImpl">
+		<constructor-arg ref="productDao"></constructor-arg>
+	</bean>
+	<bean id="productUI" class="exam.product.ui.ProductUI">
+		<property name="productService" ref="productService"></property>
+	</bean>
+
+</beans>
